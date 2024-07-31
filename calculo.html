@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Simulador INTACTA RR2 Pro</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <link rel="stylesheet" type="text/css" href="structure.css">
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="jquery_old.js"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#info").load("resultado.php");
+            });
+
+            function calcula() {
+                $("#info").load("resultado.php?valor=" + document.f1.valor.value + "|" + document.f1.estado.value + "|" + document.f1.hys.value + "|" + document.f1.plantas.value + "|" + document.f1.germo.value);
+            }
+
+            function relac(id) {
+                location = 'index2.php?id=' + id;
+            }
+        </script>
+
+        <style>
+            td
+            {
+                font-family: 'Open Sans Condensed';
+                font-size: 13px;
+                color: #151515;
+                padding: 0px;
+                margin: 0px;
+                font-family: 'Arial';
+                font-size: 13px;
+                background: #fff;
+            }
+            /* Calculadora */
+
+            .calculadora {
+                font-family: inherit;
+                text-align: center;
+                max-width: 540px;
+                padding: 40px;
+                background:#fff;
+                color: #000;
+            }
+            td
+            {
+                font-size: 1.3em;
+            }
+
+            h2 {
+                color:#96172e;
+                text-transform: uppercase;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            h3 {
+                color:#96172e;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: underline;
+                height: 40px;
+            }
+
+            input select {
+                display: inline-block;
+                width: 30%;
+                background:#efefef;
+                box-shadow: 1px 1px 1px rgba(0,0,0,0.5) inset;
+                border: 0;
+                padding: 6px;
+                font-weight: bold;
+                text-align: right;
+            }
+
+            .bt {
+                width: auto;
+                margin: 0 auto;
+                color: #fff;
+                text-align: center;
+                background:#000;
+                box-shadow: none;
+                float: none;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div align="center" style="height: 100%;" class="calculadora">
+            <h2 style="font-size: 22px;">Simulador Intacta RR2 PRO SAFRA 24/25</h2>
+            <div style="height: 20px;">&nbsp;</div>
+            <img src="calclogo.png" border="0" />
+            <div style="height: 20px;">&nbsp;</div>
+            <h3>WANDER LUCIO RODRIGUES ALVES</h3>
+            <form name="f1">
+                <table style='width: 90%;'>
+                    <tr style="height: 30px;">
+                        <td>&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><img src="vsup.jpg" border="0"</td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Tecnologia&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><select name="tecnologia" onchange="relac(this.value);" style="width: 90%;">
+                                <option value="0"></option>
+                                <option  value="1">INTACTA RR2 PRO</option>                            </select></td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Valor da Tecnologia (R$/Ha)&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><select name="valor" onchange="calcula();" style="width: 90%;">
+                                <option value=""></option>
+                                                            </select></td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Estado de Plantio&nbsp;(UF)&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><select name="estado" onchange="calcula();" style="width: 90%;">
+                                <option value=""></option>
+                                <option value="163">AC</option><option value="166">AL</option><option value="162">AM</option><option value="161">AP</option><option value="152">BA</option><option value="168">CE</option><option value="149">DF</option><option value="169">ES</option><option value="147">GO</option><option value="148">GO (Sudoeste)</option><option value="154">MA</option><option value="150">MG</option><option value="159">MS (Norte)</option><option value="160">MS (Sul)</option><option value="145">MT (Norte)</option><option value="146">MT (Sul)</option><option value="156">PA</option><option value="153">PI</option><option value="144">PR (Alto)</option><option value="143">PR (Baixo)</option><option value="170">RJ</option><option value="167">RN</option><option value="155">RO</option><option value="164">RR</option><option value="141">RS</option><option value="140">RS (Micro 101)</option><option value="142">SC</option><option value="165">SE</option><option value="157">SP (Micro 301)</option><option value="158">SP (Sul)</option><option value="151">TO</option>                            </select></td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Variedade&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><select name="hys" onchange="calcula();" style="width: 90%;">
+                                <option value=""></option>
+                                                            </select></td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Faixa do PMS (em gramas)&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><select name="plantas" onchange="calcula();" style="width: 90%;">
+                                <option value=""></option>
+                                <option value="152">Ate 80,99</option><option value="153">De 81 a 86,99</option><option value="154">De 87 a 92,99</option><option value="155">De 93 a 98,99</option><option value="156">De 99 a 104,99</option><option value="157">De 105 a 110,99</option><option value="158">De 111 a 116,99</option><option value="159">De 117 a 122,99</option><option value="160">De 123 a 128,99</option><option value="161">De 129 a 134,99</option><option value="162">De 135 a 140,99</option><option value="163">De 141 a 146,99</option><option value="164">De 147 a 152,99</option><option value="165">De 153 a 158,99</option><option value="166">De 159 a 164,99</option><option value="167">De 165 a 170,99</option><option value="168">De 171 a 176,99</option><option value="169">De 177 a 182,99</option><option value="170">De 183 a 188,99</option><option value="171">De 189 a 194,99</option><option value="172">De 195 a 200,99</option><option value="173">De 201 a 206,99</option><option value="174">De 207 a 212,99</option><option value="175">De 213 a 218,99</option><option value="176">De 219 a 224,99</option><option value="177">De 225 a 230,99</option><option value="178">De 231 a 236,99</option><option value="179">De 237 a 242,99</option><option value="180">De 243 a 248,99</option><option value="181">De 249 a 254,99</option><option value="182">A partir de 255</option>                            </select></td>
+                    </tr>
+                    <tr style="height: 40px;">
+                        <td style="width: 250px; text-align: right;">Valor Germoplasma (R$ / KG)&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><input type="number" min="0.00" step="0.01" name="germo" onkeyup="calcula();" style="width: 88%;" maxlength="7"></td>
+                    </tr>
+                    <!--<tr style="height: 40px;">
+                        <td style="width: 250px;">Qtde Sementes por Saca/Bag&nbsp;:&nbsp;</td>
+                        <td style="width: 200px; background-image: url(gray.jpg);"><input type="number" min="0" step="1000" name="saca" onkeyup="calc()f
+                    ;" style="width: 88%;" maxlength="7"></td>
+                    </tr>-->
+                    <tr style="height: 5px;">
+                        <td>&nbsp;</td>
+                        <td><img src="vinf.jpg" border="0"</td>
+                    </tr>
+                </table>
+
+                <hr />
+                <br />
+
+                <div id="info" style="width: 90%;"></div>
+                <div style="text-align: right; text-decoration: underline; cursor: pointer;" onclick="location = 'desvalidar.php'">Fechar</div>
+
+            </form>
+        </div>
+    </body>
+</html>
